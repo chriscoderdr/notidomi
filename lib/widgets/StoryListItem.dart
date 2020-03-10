@@ -32,15 +32,9 @@ class _ThumbnailStory extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Expanded(
-          flex: 3,
-          child: _StoryDescription(
-            story: story,
-          ),
-        ),
-        Expanded(
           flex: 2,
           child: Padding(
-              padding: EdgeInsets.fromLTRB(5.0, 0, 0, 0),
+              padding: EdgeInsets.fromLTRB(0, 0, 5.0, 0),
               child: CachedNetworkImage(
                 imageUrl: story.thumbnailUrl,
                 placeholder: (context, url) => Container(
@@ -54,6 +48,12 @@ class _ThumbnailStory extends StatelessWidget {
                 height: 150,
               )),
         ),
+        Expanded(
+          flex: 3,
+          child: _StoryDescription(
+            story: story,
+          ),
+        )
       ],
     );
   }
@@ -110,7 +110,7 @@ class _StoryDescription extends StatelessWidget {
             this.story.subtitle,
             style: TextStyle(fontSize: 12),
             overflow: TextOverflow.ellipsis,
-                    maxLines: 3 ,
+            maxLines: 3,
           )))
         ],
       ),
